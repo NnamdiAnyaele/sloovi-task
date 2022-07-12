@@ -107,7 +107,7 @@ const Dashboard = () => {
 			};
 			await createTask(user?.company_id, payload);
 			dispatch(getTasks(user?.company_id));
-			setEditTask(defaultalues);
+			setNewTask(defaultalues);
 			toast.success("Task added successfully");
 			setAddLoading(false);
 		} catch (error) {
