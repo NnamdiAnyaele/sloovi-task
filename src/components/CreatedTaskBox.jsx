@@ -23,7 +23,7 @@ const CreatedTaskBox = ({ message, taskDate, onClickEdit }) => {
 			onMouseLeave={() => setAddButtonShow(false)}
 		>
 			<Box sx={{ display: "flex", alignItems: "center" }}>
-				<Box sx={{ height: "2.5rem", width: "2.5rem", mr: "1rem" }}>
+			<Box sx={{ height: "2.5rem", width: "2.5rem", mr: "1rem" }}>
 					<img
 						src="https://picsum.photos/200"
 						alt="task"

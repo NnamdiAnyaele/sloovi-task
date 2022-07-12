@@ -42,7 +42,6 @@ const assigneeSlice = createSlice({
 			state.error = null;
 			state.assignees = action.payload.results.data;
 			state.message = action.payload.message;
-			console.log(action.payload.results.data);
 		},
 		[getAssignees.rejected]: (state, action) => {
 			state.isProcessing = false;

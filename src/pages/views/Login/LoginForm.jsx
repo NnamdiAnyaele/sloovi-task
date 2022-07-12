@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { styled } from "@mui/material/styles";
@@ -41,7 +40,6 @@ const FormComponent = styled(Box)({
 });
 
 export default function LoginForm() {
-	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const { isProcessing, isAuthenticated, error } = useSelector(
 		(state) => state.auth
@@ -66,7 +64,7 @@ export default function LoginForm() {
 		if (isAuthenticated) {
 			window.location = "/dashboard";
 		}
-	}, [isAuthenticated, navigate]);
+	}, [isAuthenticated]);
 
 	useEffect(() => {
 		if (error) {

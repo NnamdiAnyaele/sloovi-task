@@ -1,7 +1,6 @@
 import axios from "helpers/axios";
 
 export async function deleteTask(task_id, comapany_id) {
-	console.log({ task_id, comapany_id });
 	const url = `/task/lead_465c14d0e99e4972b6b21ffecf3dd691/${task_id}?company_id=${comapany_id}`;
 	const { data } = await axios.delete(url, {});
 	return data;

@@ -43,11 +43,11 @@ const Dashboard = () => {
 	const { assignees } = useSelector((state) => state.assignees);
 
 	useEffect(() => {
-		if (user.company_id) {
-			dispatch(getTasks(user.company_id));
-			dispatch(getAssignees(user.company_id));
+		if (user?.company_id) {
+			dispatch(getTasks(user?.company_id));
+			dispatch(getAssignees(user?.company_id));
 		}
-	}, [dispatch, user.company_id]);
+	}, [dispatch, user?.company_id]);
 
 	const [newTask, setNewTask] = useState(defaultalues);
 	const [editTask, setEditTask] = useState(defaultalues);
@@ -73,8 +73,8 @@ const Dashboard = () => {
 	const handleTaskDeletion = async () => {
 		try {
 			setDeleteLoading(true);
-			await deleteTask(selectedTask.id, selectedTask.company_id);
-			dispatch(getTasks(user.company_id));
+			await deleteTask(selectedTask?.id, selectedTask?.company_id);
+			dispatch(getTasks(user?.company_id));
 			setEditTask(defaultalues);
 			setDeleteLoading(false);
 			handleDeleteModalOpen(false);
@@ -105,8 +105,8 @@ const Dashboard = () => {
 				time_zone: 3600,
 				task_msg: newTask.description,
 			};
-			await createTask(user.company_id, payload);
-			dispatch(getTasks(user.company_id));
+			await createTask(user?.company_id, payload);
+			dispatch(getTasks(user?.company_id));
 			setEditTask(defaultalues);
 			toast.success("Task added successfully");
 			setAddLoading(false);
@@ -136,8 +136,8 @@ const Dashboard = () => {
 				time_zone: 3600,
 				task_msg: editTask.description,
 			};
-			await updateTask(selectedTask.id, user.company_id, payload);
-			dispatch(getTasks(user.company_id));
+			await updateTask(selectedTask?.id, user?.company_id, payload);
+			dispatch(getTasks(user?.company_id));
 			setEditTask(defaultalues);
 			toast.success("Task edited successfully");
 			setDisplayEditBox(false);
@@ -205,7 +205,7 @@ const Dashboard = () => {
 								component="p"
 								sx={{ padding: "0.5rem" }}
 							>
-								Task {tasks.length}
+								Task {tasks?.length}
 							</Typography>
 							<Tooltip title="New Task">
 								<Box
@@ -221,7 +221,7 @@ const Dashboard = () => {
 
 						{/* created task box */}
 						<Box sx={{ backgroundColor: "#F9F9FA" }}>
-							{tasks.map((task) => (
+							{tasks?.map((task) => (
 								<Box key={task.id}>
 									<CreatedTaskCard
 										message={task.task_msg}
@@ -233,7 +233,7 @@ const Dashboard = () => {
 						</Box>
 
 						{/* task adder box */}
-						{(tasks.length === 0 || (displayAddBox && !displayEditBox)) && (
+						{(tasks?.length === 0 || (displayAddBox && !displayEditBox)) && (
 							<Box
 								component="form"
 								noValidate
