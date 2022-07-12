@@ -78,6 +78,7 @@ const Dashboard = () => {
 			setEditTask(defaultalues);
 			setDeleteLoading(false);
 			handleDeleteModalOpen(false);
+			setDisplayEditBox(false);
 			toast.success("Task deleted successfully");
 		} catch (error) {
 			setDeleteLoading(false);
